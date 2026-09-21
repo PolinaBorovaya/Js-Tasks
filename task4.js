@@ -120,14 +120,16 @@ const WIDTH = 150, HEIGHT = 200;
 const result = movieLists.reduce((acc, section) => {
   section.videos.forEach(video => {
     video.boxarts.forEach(box => {
-      if(box.width === WIDTH && box.height === HEIGHT)
+      if(box.width === WIDTH && box.height === HEIGHT){
         acc.push({
          id: video.id,
          title: video.title,
          boxart: box.url,
-      });
+        });
+      }   
     });
   });
+  
   return acc;
 }, []);
 
