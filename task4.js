@@ -15,9 +15,10 @@ let data = [
 	'country3': ['city31', 'city32']
 }*/
 
-const result = data.reduce((res, obj) => {
-    res[obj.country] = res[obj.country] || [];
-    res[obj.country].push(obj.city);
+const result = data.reduce((res, {country, city}) => {
+    res[country] = res[country] || [];
+    res[country].push(city);
+
     return res;
 }, {});
 
