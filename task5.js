@@ -17,7 +17,6 @@ setTimeout(function(){  //3
 
 setTimeout(() => user.showName(), 100); //4
 
-setTimeout(async () => { //5 (?)
-	await showName.call(user);
-}, 100);
+user.showName = showName.bind(user); //5
+setTimeout(user.showName, 100);
 
