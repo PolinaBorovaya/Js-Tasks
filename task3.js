@@ -1,14 +1,21 @@
+const MAX_TIME_MS = 3000;    
+const LIMIT_MS = 2000; 
+
+function getRandomSeconds() {
+  return Math.floor(Math.random() * MAX_TIME_MS);
+}
+
 new Promise((resovle, reject) => {
-    const time = Math.floor(Math.random() * 3000);
+    const randomSeconds = getRandomSeconds();
     
-    if(time<=2000){
-        resovle(time);
+    if(randomSeconds<=LIMIT_MS){
+        resovle(randomSeconds);
     }
-    else reject(time);
+    else reject(randomSeconds);
 })
-  .then(time => {
-    console.log("Успех!", time);
+  .then(randomSeconds => {
+    console.log("Успех!", randomSeconds);
   })
-  .catch(time => {
-    console.error("Время выполнения превысило 2 секунды!", time);
+  .catch(randomSeconds => {
+    console.error("Время выполнения превысило 2 секунды!", randomSeconds);
   });

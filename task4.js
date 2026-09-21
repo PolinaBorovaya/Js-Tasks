@@ -1,13 +1,19 @@
-const count = Math.floor(Math.random() * 10) + 1;
+const MS_PER_SECOND = 1000;
+
+const getRandomNumber = (maxValue) => {
+    return Math.floor(Math.random() * maxValue) + 1;
+};
+
+const count = getRandomNumber(10);
 
 const promises = Array.from({ length: count }, (_, i) => {
     return new Promise((resolve) => {
-        const delay = Math.floor(Math.random() * 10) + 1;
+        const delay = getRandomNumber(10);
 
         setTimeout(() => {
             console.log(`Функция ${i + 1} сработала за ${delay} секунд`);
             resolve(delay);
-        }, delay * 1000);
+        }, delay * MS_PER_SECOND);
     });
 });
 

@@ -1,3 +1,5 @@
+const MULTIPLIER = 2;
+
 new Promise(function (resolve, reject) {
     setTimeout(() => {
         resolve(10);
@@ -6,14 +8,14 @@ new Promise(function (resolve, reject) {
 })
   .then(result => {
     console.log(result);
-    return result * 2;
+    return result * MULTIPLIER;
     // должно вывести значение и передать дальше увеличенное на 2
   })
   .then(result => {
     console.log(result);
     return new Promise(resolve => {
         setTimeout(() => {
-            resolve(result * 2);
+            resolve(result * MULTIPLIER);
         }, 2000);
     });
     // должно вывести значение и передать дальше увеличенное на 2 через 2 секунды
