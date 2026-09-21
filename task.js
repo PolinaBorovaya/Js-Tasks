@@ -23,6 +23,21 @@ const func = async () => {
 
 }
 
+const funcAll = async () => {
+  try{
+    const [videos, meta] = Promise.all([
+      loadVideosAsync(),
+      loadMetaAsync(),
+    ]);
+
+    DoSomething(videos, meta);
+  }
+  catch(error){
+    console.log("Ошибка", error);
+  }
+
+}
+
 // Пример 2
 function anAsyncCall() {
   var promise = doSomethingAsync();
@@ -38,6 +53,7 @@ db.getAllDocs()
     const promises = result.rows.map(function (row) {
       return db.remove(row.doc);
     });
+
     return Promise.all(promises);
   })
   .then(function () {
