@@ -1,12 +1,12 @@
 const input = document.querySelector('#inputText');
 
-let timerIdTaskFour;
+let timerIdPrint;
 
 const TIMER_TICK = 1000;
 
 input.addEventListener('input', () => {
-    clearTimeout(timerIdTaskFour);
-    timerIdTaskFour = setTimeout(() =>{
+    clearTimeout(timerIdPrint);
+    timerIdPrint = setTimeout(() =>{
         console.log(input.value);
     }, TIMER_TICK);
 })

@@ -1,6 +1,6 @@
-const  buttonTaskThree = document.querySelector("#task3Btn");
+const  secondsBtn = document.querySelector("#task3Btn");
 
-let timerIdTaskThree = null;
+let timerIdSecond = null;
 
 const MIN_DELAY = 1;
 const MAX_DELAY = 4;
@@ -10,17 +10,17 @@ function getRandomSeconds(min, max){
     return (Math.floor(Math.random() * (max - min + 1)) + min);
 }
 
-buttonTaskThree.addEventListener('click', () => {
-    if(timerIdTaskThree != null){
-        clearInterval(timerIdTaskThree);
-        timerIdTaskThree = null;
+secondsBtn.addEventListener('click', () => {
+    if(timerIdSecond != null){
+        clearInterval(timerIdSecond);
+        timerIdSecond = null;
 
         return;
     }
 
     const randomSeconds = getRandomSeconds(MIN_DELAY, MAX_DELAY);
 
-    timerIdTaskThree = setInterval(() => {
+    timerIdSecond = setInterval(() => {
         console.log(randomSeconds + 'seconds');
     }, randomSeconds * MS_PER_SECOND);
 });

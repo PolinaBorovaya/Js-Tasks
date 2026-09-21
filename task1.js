@@ -1,11 +1,11 @@
-const buttonTaskOne = document.querySelector('#task1Btn');
+const printHelloBtn = document.querySelector('#task1Btn');
 
-let timerIdTaskOne;
+let timerIdHello;
 
-buttonTaskOne.addEventListener('click', () => {
-    clearTimeout(timerIdTaskOne);
+printHelloBtn.addEventListener('click', () => {
+    clearTimeout(timerIdHello);
 
-    timerIdTaskOne = setTimeout(() => {
+    timerIdHello = setTimeout(() => {
         console.log("Hello World");
     }, 5000);
 });
