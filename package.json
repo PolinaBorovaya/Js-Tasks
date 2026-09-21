@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "dependencies": {
+    "transliteration": "^2.6.1"
+    
+  }
+}
