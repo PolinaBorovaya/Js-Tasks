@@ -8,7 +8,20 @@ loadVideosAsync()
   })
   .catch(err => {
     console.log("Ошибка", err);
-  });                                   
+  }); 
+  
+const func = async () => {
+  try{
+    const videos = await loadVideosAsync();
+    const meta = await loadMetaAsync();
+
+    DoSomething(videos, meta);
+  }
+  catch(error){
+    console.log("Ошибка", error);
+  }
+
+}
 
 // Пример 2
 function anAsyncCall() {
