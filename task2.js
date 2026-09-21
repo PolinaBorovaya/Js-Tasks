@@ -1,9 +1,10 @@
 Array.prototype.filter = function(predicateFunction) {
   const result = [];
 
-  this.forEach((x, i, arr) => {
-    if(predicateFunction(x, i, arr)) 
-        result.push(x);
+  this.forEach((element, index, array) => {
+    if(predicateFunction(element, index, array)) {
+        result.push(element);
+    }
   });
 
   return result;

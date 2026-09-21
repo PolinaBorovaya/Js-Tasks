@@ -28,5 +28,7 @@ var newReleases = [{
 	"bookmark": [{ id: 432534, time: 65876586 }]
 }];
 
-const ids = newReleases.filter(x => x.rating.includes(5.0)).map(x => x.id);
+const RATING = 5.0;
+
+const ids = newReleases.filter(x => x.rating.map(Number).includes(Number(RATING))).map(x => x.id);
 console.log(ids);

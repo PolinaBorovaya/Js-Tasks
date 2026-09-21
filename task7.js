@@ -21,10 +21,11 @@ var boxarts = [
   },
 ];
 
-const maxUrl = boxarts.reduce((area, x) => {
+const maxUrl = boxarts.reduce((area, box) => {
     let maxArea = area.height * area.width;
-    let currentArea = x.height * x.width;
-    return currentArea > maxArea ? x : area;
+    let currentArea = box.height * box.width;
+    
+    return currentArea > maxArea ? box : area;
 }).url;
 
 console.log(maxUrl);

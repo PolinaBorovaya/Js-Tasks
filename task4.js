@@ -100,20 +100,35 @@ var movieLists = [
 // 	{"id": 675465,"title": "Fracture","boxart":"http://cdn-0.nflximg.com/images/2891/Fracture150.jpg"}
 // ];
 
+const WIDTH = 150, HEIGHT = 200;
 
-const result = movieLists.map(section =>
-  section.videos.map(video =>
-    video.boxarts
-      .filter(box => box.width == 150 && box.height == 200)
-      .map(box => ({
-        id: video.id,
-        title: video.title,
-        boxart: box.url,
-      })
-    )
-  )
-)
+// const result = movieLists.map(section =>
+//   section.videos.map(video =>
+//     video.boxarts
+//       .filter(box => box.width == WIDTH && box.height == HEIGHT)
+//       .map(box => ({
+//         id: video.id,
+//         title: video.title,
+//         boxart: box.url,
+//       })
+//     )
+//   )
+// )
 
-const resultMovie = [].concat(...[].concat(...result));
+// const resultMovie = [].concat(...[].concat(...result));
 
-console.log(resultMovie);
+const result = movieLists.reduce((acc, section) => {
+  section.videos.forEach(video => {
+    video.boxarts.forEach(box => {
+      if(box.width === WIDTH && box.height === HEIGHT)
+        acc.push({
+         id: video.id,
+         title: video.title,
+         boxart: box.url,
+      });
+    });
+  });
+  return acc;
+}, []);
+
+console.log(result);
