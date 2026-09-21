@@ -1,21 +1,26 @@
-const MAX_TIME_MS = 3000;    
-const LIMIT_MS = 2000; 
+const  secondsBtn = document.querySelector("#task3Btn");
 
-function getRandomSeconds() {
-  return Math.floor(Math.random() * MAX_TIME_MS);
+let timerIdSecond = null;
+
+const MIN_DELAY = 1;
+const MAX_DELAY = 4;
+const MS_PER_SECOND = 1000;
+
+function getRandomSeconds(min, max){
+    return (Math.floor(Math.random() * (max - min + 1)) + min);
 }
 
-new Promise((resovle, reject) => {
-    const randomSeconds = getRandomSeconds();
-    
-    if(randomSeconds<=LIMIT_MS){
-        resovle(randomSeconds);
+secondsBtn.addEventListener('click', () => {
+    if(timerIdSecond != null){
+        clearInterval(timerIdSecond);
+        timerIdSecond = null;
+
+        return;
     }
-    else reject(randomSeconds);
-})
-  .then(randomSeconds => {
-    console.log("Успех!", randomSeconds);
-  })
-  .catch(randomSeconds => {
-    console.error("Время выполнения превысило 2 секунды!", randomSeconds);
-  });
+
+    const randomSeconds = getRandomSeconds(MIN_DELAY, MAX_DELAY);
+
+    timerIdSecond = setInterval(() => {
+        console.log(randomSeconds + 'seconds');
+    }, randomSeconds * MS_PER_SECOND);
+});
