@@ -1,15 +1,21 @@
-const button2 = document.querySelector('#task2Btn');
+const buttonTaskTwo = document.querySelector('#task2Btn');
 
-let timerId2 = null;
+let timerIdTaskTwo = null;
+const TIMER_TICK = 3000;
 
-button2.addEventListener('click', () => {
-    if(timerId2!=null){
-        clearInterval(timerId2);
-        timerId2 = null;
+buttonTaskTwo.addEventListener('click', () => {
+    if(timerIdTaskTwo!=null){
+        clearInterval(timerIdTaskTwo);
+        timerIdTaskTwo = null;
+
         return;
     }
 
-    timerId2 = setInterval(() => {
-        console.log("You are welcome!");
-    }, 3000);
+    timerIdTaskTwo = setInterval(() => {
+        Welcome();
+    }, TIMER_TICK);
 });
+
+function Welcome(){
+    console.log("You are welcome!");
+};
